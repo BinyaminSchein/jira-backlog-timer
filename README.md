@@ -1,6 +1,6 @@
 # jira-backlog-timer
 
-An extension that adds a timer at the top of the jira backlog 
+An extension that adds a timer at the top of the jira backlog to assist in planning
 
 ![](images/screenshot.png)
 
