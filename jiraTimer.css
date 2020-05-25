@@ -1,0 +1,15 @@
+.jiraTimer {
+    padding: 20px;
+    background-color: limegreen;
+    color: black;
+    margin-bottom: 15px;
+    border-radius: 10px;
+}
+  
+.jiraTimer.JTalmostDone {
+    background-color: yellow;
+}
+.jiraTimer.JToverdue {
+    background-color: red;
+}
+  

@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  </head>
+<body>
+  <div style="display:flex; flex-direction: row; justify-content: center; align-items: center">
+    
+    <button id="toggle-timer-btn" style="border:0; padding:0">
+      <svg id='toggle-icon' width="3em" height="3em" viewBox="0 0 16 16" fill="green">
+        <path id='icon-path' d="M11.596 8.697l-6.363 3.692c-.54.313-1.233-.066-1.233-.697V4.308c0-.63.692-1.01 1.233-.696l6.363 3.692a.802.802 0 0 1 0 1.393z"/>
+      </svg>
+    </button>
+  </div>
+  <div style="display:flex; flex-direction: row; justify-content: center; align-items: center">
+    <label for="seconds">Seconds: </label>
+    <input id="seconds" type="number" value="300" min="1" style="width: 35px;">
+  </div>
+  <script src="popup.js"></script>
+  </body>
+</html>
