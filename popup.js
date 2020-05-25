@@ -54,19 +54,26 @@ function toggleButton(){
     }
 }
 
-stopPath = "M5.5 3.5A1.5 1.5 0 0 1 7 5v6a1.5 1.5 0 0 1-3 0V5a1.5 1.5 0 0 1 1.5-1.5zm5 0A1.5 1.5 0 0 1 12 5v6a1.5 1.5 0 0 1-3 0V5a1.5 1.5 0 0 1 1.5-1.5z";
 startPath = "M11.596 8.697l-6.363 3.692c-.54.313-1.233-.066-1.233-.697V4.308c0-.63.692-1.01 1.233-.696l6.363 3.692a.802.802 0 0 1 0 1.393z"
+stopPath = "M5 3.5h6A1.5 1.5 0 0 1 12.5 5v6a1.5 1.5 0 0 1-1.5 1.5H5A1.5 1.5 0 0 1 3.5 11V5A1.5 1.5 0 0 1 5 3.5z";
+
+startTimerHTML = `
+<svg id='toggle-icon' width="3em" height="3em" viewBox="0 0 16 16" fill="green">
+        <path id='icon-path' d="M11.596 8.697l-6.363 3.692c-.54.313-1.233-.066-1.233-.697V4.308c0-.63.692-1.01 1.233-.696l6.363 3.692a.802.802 0 0 1 0 1.393z"/>
+</svg>
+`;
 function setButtonToStart(){
-    let toggleIcon = document.getElementById('toggle-icon');
-    toggleIcon.setAttribute('fill', 'green');
-
-    let iconPath = document.getElementById('icon-path');
-    iconPath.setAttribute('d', startPath);
+    let toggleBtn = document.getElementById('toggle-timer-btn');
+    toggleBtn.innerHTML = startTimerHTML;
 }
-function setButtonToStop(){
-    let toggleIcon = document.getElementById('toggle-icon');
-    toggleIcon.setAttribute('fill', 'red');
 
-    let iconPath = document.getElementById('icon-path');
-    iconPath.setAttribute('d', stopPath);
+stopTimerHTML = `
+<svg width="3em" height="3em" viewBox="0 0 16 16" fill="red">
+  <path fill-rule="evenodd" d="M11.854 4.146a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708-.708l7-7a.5.5 0 0 1 .708 0z"/>
+  <path fill-rule="evenodd" d="M4.146 4.146a.5.5 0 0 0 0 .708l7 7a.5.5 0 0 0 .708-.708l-7-7a.5.5 0 0 0-.708 0z"/>
+</svg>
+`;
+function setButtonToStop(){
+    let toggleBtn = document.getElementById('toggle-timer-btn');
+    toggleBtn.innerHTML = stopTimerHTML;
 }
