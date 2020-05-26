@@ -24,9 +24,9 @@
         "128": "images/timer_128.png"
     },
     "web_accessible_resources": [
-        "jiraTimer.js",
-        "jiraTimer.css",
-        "bootstrap.min.css"
+        "injected_code/jiraTimer.js",
+        "injected_code/jiraTimer.css",
+        "timer_audio/*"
     ],
     "manifest_version": 2
 }

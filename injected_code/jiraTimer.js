@@ -18,10 +18,10 @@ function timeToJiraText(time){
 
     text = minutes + ":" + seconds;
     if (time < 0){
-    text = "You are overdue by " + text
+        text = "You are overdue by " + text
     }
     else {
-    text = "You have " + text + " left"
+        text = "You have " + text + " left"
     }
     return text
 }
@@ -39,8 +39,14 @@ function timeToJiraClass(time){
     }
     return className
 }
+
+function alertIfTimeDone(time){
+    if(time == 0){
+        $("#jira-timer-audio")[0].play();
+    }
+}
   
-function startTimer(duration){
+function startTimer(duration, silent){
     if (jiraTimerIntervalHandler > 0){
         return;
     }
@@ -53,15 +59,18 @@ function startTimer(duration){
     var timer = duration;
 
     jiraTimerIntervalHandler = setInterval(function () {
+        if(!silent){
+            alertIfTimeDone(timer);
+        }
         jiraTimerDiv.textContent = timeToJiraText(timer);
         jiraTimerDiv.className   = timeToJiraClass(timer);
         
         timer = timer - 1;
 
         if (currentJiraTimerIssue != JIRA.Issue.getIssueId()){
-        currentJiraTimerIssue = JIRA.Issue.getIssueId();
-        stopTimer();
-        startTimer(duration);
+            currentJiraTimerIssue = JIRA.Issue.getIssueId();
+            stopTimer();
+            startTimer(duration);
         }
     }, 1000);
 
@@ -84,7 +93,7 @@ window.addEventListener("toggle_jira_timer", function(e){
         jiraTimerStarted = false;
     }
     else {
-        startTimer(e.detail.seconds);
+        startTimer(e.detail.seconds, e.detail.silent);
         jiraTimerStarted = true;
     }
 })

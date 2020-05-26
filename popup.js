@@ -23,6 +23,7 @@ toggleTimer.onclick = function(element){
             window.dispatchEvent(new CustomEvent('toggle_jira_timer', {
                 'detail': {
                     'seconds': `+ seconds +`,
+                    'silent': ` + document.getElementById('silent').checked + `
                 }
             }));
             `});
