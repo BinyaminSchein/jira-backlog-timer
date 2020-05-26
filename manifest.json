@@ -28,5 +28,9 @@
         "injected_code/jiraTimer.css",
         "timer_audio/*"
     ],
+    "options_ui": {
+        "page": "options.html",
+        "open_in_tab": false
+      },
     "manifest_version": 2
 }

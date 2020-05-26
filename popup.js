@@ -8,7 +8,7 @@ chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
 });
 
 let secondsInput = document.getElementById('seconds');
-chrome.storage.sync.get(['seconds'], function(data){
+chrome.storage.local.get(['seconds'], function(data){
     if (typeof data.seconds !== 'undefined'){
         secondsInput.setAttribute('value', data.seconds);
     }
@@ -30,7 +30,7 @@ toggleTimer.onclick = function(element){
         });
         
         toggleButton();
-        chrome.storage.sync.set({'seconds': seconds});
+        chrome.storage.local.set({'seconds': seconds});
     }
 };
 

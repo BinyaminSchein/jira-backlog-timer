@@ -14,10 +14,18 @@ if (typeof jiraTimerLoaded === "undefined"){
     link.href = chrome.runtime.getURL("injected_code/jiraTimer.css");
     (document.head || document.documentElement).appendChild(link);
     
-    var timer_audio = document.createElement("audio");
-    timer_audio.src = chrome.runtime.getURL("timer_audio/times_up.mp3");
-    timer_audio.id = 'jira-timer-audio';
-    (document.head || document.documentElement).appendChild(timer_audio);
+
+    chrome.storage.local.get(['audio'], function(data){
+        var timer_audio = document.createElement("audio");
+        if (typeof data.audio !== 'undefined'){
+            timer_audio.src = data.audio;
+        }
+        else {
+            timer_audio.src = chrome.runtime.getURL("timer_audio/times_up.mp3");
+        }
+        timer_audio.id = 'jira-timer-audio';
+        (document.head || document.documentElement).appendChild(timer_audio);
+    });
 
     jiraTimerLoaded = true;
 }
